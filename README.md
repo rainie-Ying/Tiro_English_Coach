@@ -80,7 +80,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 # 6. 配置用户权限（避免每次执行docker命令用sudo）
 sudo usermod -aG docker $USER
 newgrp docker  # 应用权限（需重新登录生效，若临时测试可跳过）
-
+```
 
 #### 2. 用Docker 部署 Ollama
 ```bash
@@ -89,6 +89,7 @@ docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
 
 # 2. 验证容器是否正常运行（出现"ollama"容器名即成功）
 docker ps | grep ollama
+```
 
 #### 3. 在 Ollama 中安装默认模型（qwen3:latest）
 ```bash
@@ -103,6 +104,7 @@ ollama list
 
 # 4. 退出容器
 exit
+```
 
 #### 4. 部署 Tiro English Coach 应用
 ```bash
@@ -124,6 +126,7 @@ pip install -r requirements.txt
 
 # 4. 配置环境变量（关联Ollama与模型）
 # 方式1：直接创建.env文件（推荐）
+```bash
 echo "OLLAMA_API_BASE_URL=http://localhost:11434" > .env
 echo "OLLAMA_MODEL=qwen3:latest" >> .env
 
